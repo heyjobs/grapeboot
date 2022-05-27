@@ -35,6 +35,8 @@ When app is started with any of those, the error does not happen:
 * `rails server`
 * `sidekiq`
 * `DISABLE_BOOTSNAP_LOAD_PATH_CACHE=1 sidekiqswarm`
+* `SIDEKIQ_PRELOAD= sidekiqswarm`
+* `SIDEKIQ_PRELOAD= SIDEKIQ_PRELOAD_APP=1 sidekiqswarm`
 
 It also does not happen if `require 'bootsnap/setup'` is removed from `config/boot.rb`.
 
