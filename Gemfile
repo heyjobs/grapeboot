@@ -22,11 +22,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'grape'
-gem 'sidekiq'
-
-source 'https://enterprise.contribsys.com/' do
-  gem 'sidekiq-ent'
-end
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+# This simulates how application boot using sidekiqswarm with SIDEKIQ_PRELOAD_APP enabled.
+
+groups = (ENV["SIDEKIQ_PRELOAD"] || "default").split(",")
+
+require 'bundler/setup'
+
+# Uncomment bellow and run with `BOOTSNAP_CACHE_DIR=tmp/cache ./bin/sidekiqswarm` would "fix" the problem
+# require 'bootsnap/setup'
+
+if groups.size > 0
+  Bundler.require(*groups)
+end
+
+# This is from Sidekiq::CLI#boot_application
+require 'rails'
+# require 'sidekiq/rails'
+require File.expand_path('./config/environment.rb')
