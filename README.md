@@ -2,8 +2,8 @@
 
 This is a minimal Rails app to demonstrate an uninitialized constant error when using `sidekiqswarm` (from [sidekiq-ent](https://sidekiq.org/products/enterprise.html)) and [Bootsnap](https://github.com/Shopify/bootsnap) with [Grape](https://github.com/ruby-grape/grape).
 
-The error happens when there is a class that inherits from `Grape::API` (here being `MyApi::Thing`) and a 
-nested class (here `MyApi::Thing::NestedThing`). When the nested class is loaded an `uninitialized constant` error
+The error happens when there is a class that inherits from `Grape::API` (here being `Thing`) and a 
+nested class (here `Thing::NestedThing`). When the nested class is loaded an `uninitialized constant` error
 is raised when app is booted with `sidekiqswarm` and Bootsnap is enabled (which is a Rails default).
 
 ## Setup
@@ -18,7 +18,7 @@ This is how the error look like:
 
 ```
 /home/guigs/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/grape-1.6.2/lib/grape/api.rb:87:in `const_get': uninitialized constant #<Class:0x00007f5b1c6cb2d0>::NestedThing (NameError)
-Did you mean?  MyApi::Thing::NestedThing
+Did you mean?  Thing::NestedThing
         from /home/guigs/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/grape-1.6.2/lib/grape/api.rb:87:in `const_missing'
         from /home/guigs/grapeboot/config/routes.rb:8:in `block in <main>'
         from /home/guigs/.rbenv/versions/3.0.3/lib/ruby/gems/3.0.0/gems/actionpack-7.0.3/lib/action_dispatch/routing/route_set.rb:428:in `instance_exec'
