@@ -1,6 +1,6 @@
 puts 'Loading Thing::NestedThing'
 
 class Thing
-  class NestedThing #< Grape::API
+  class NestedThing < Grape::API
   end
 end

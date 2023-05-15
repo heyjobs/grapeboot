@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  #mount Thing::NestedThing => '/'
-  Thing::NestedThing
+  mount Thing::NestedThing => '/'
 end
